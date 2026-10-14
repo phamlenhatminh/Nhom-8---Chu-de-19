@@ -1,0 +1,78 @@
+class KhoHang {
+private:
+    string maKho;
+    string tenKho;
+    string diaDiem;
+    int sucChuaToiDa;
+    int soLuongHienTai;
+    string loaiHang;
+    string nguoiQuanLy;
+
+public:
+    // Ham lay ma kho
+    void setMaKho(const string& maKhoHopLe) {
+        maKho = maKhoHopLe;
+    }
+    // Ham nhap thong tin kho con lai
+    void nhap() {
+        cin.ignore();
+        cout << "Ten kho: ";
+        getline(cin, tenKho);
+
+        cout << "Dia diem: ";
+        getline(cin, diaDiem);
+
+        do {
+            while(true) {
+                cout << "Suc chua toi da: ";
+                if(cin >> sucChuaToiDa) {
+                    break;
+                }
+                else {
+                    cout << "Phai la so nguyen!\n";
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                }
+            }
+            if(sucChuaToiDa < 0) cout << "Suc chua khong hop le.\n";
+        } while(sucChuaToiDa < 0);
+        // So luong hang hien tai khong duoc am
+        do {
+            while(true) {
+                cout << "So luong hang hien tai: ";
+                if(cin >> soLuongHienTai) {
+                    break;
+                }
+                else {
+                    cout << "Phai la so nguyen!\n";
+                    cin.clear();
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                }
+            }
+            if (soLuongHienTai < 0 ||
+                soLuongHienTai > sucChuaToiDa) {
+                cout << "So luong hang khong hop le! Nhap lai.\n";
+            }
+        } while (soLuongHienTai < 0 ||
+                 soLuongHienTai > sucChuaToiDa);
+
+        cin.ignore();
+
+        cout << "Loai hang luu tru: ";
+        getline(cin, loaiHang);
+
+        cout << "Nguoi quan ly: ";
+        getline(cin, nguoiQuanLy);
+    }
+
+    // Ham xuat thong tin kho
+    void xuat() {
+        cout << "Ma kho: " << maKho << endl;
+        cout << "Ten kho: " << tenKho << endl;
+        cout << "Dia diem: " << diaDiem << endl;
+        cout << "Suc chua toi da: " << sucChuaToiDa << endl;
+        cout << "So luong hang hien tai: "
+             << soLuongHienTai << endl;
+        cout << "Loai hang luu tru: " << loaiHang << endl;
+        cout << "Nguoi quan ly: " << nguoiQuanLy << endl;
+    }
