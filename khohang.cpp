@@ -70,7 +70,7 @@ public:
         getline(cin, nguoiQuanLy);
     }
 
-    // Ham xuat thong tin kho
+   // Ham xuat thong tin kho
     void xuat() {
         cout << "Ma kho: " << maKho << endl;
         cout << "Ten kho: " << tenKho << endl;
@@ -125,7 +125,6 @@ public:
         return sucChuaToiDa;
     }
 };
-
 
 // ================= NHAP DANH SACH =================
 //Ham kiem tra ma kho trung
