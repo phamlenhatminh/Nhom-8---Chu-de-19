@@ -1,3 +1,61 @@
+// ================= NHAP DANH SACH =================
+//Ham kiem tra ma kho trung
+bool kiemTraMaKhoTrung(KhoHang ds[], int n, const string& makhomoi) {
+    for(int i = 0; i < n; i++) {
+        if(ds[i].getMaKho() == makhomoi) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void nhapDanhSach(KhoHang ds[], int &n) {
+    do {
+        cout << "Nhap so luong kho (0 < n < 200): ";
+        cin >> n;
+
+        if (n <= 0 || n >= 200) {
+            cout << "So luong kho khong hop le! Nhap lai.\n";
+        }
+    } while (n <= 0 || n >= 200);
+
+    for (int i = 0; i < n; i++) {
+        cout << "\n===== NHAP KHO THU " << i + 1 << " =====\n";
+
+        string maKhoNhap;
+        bool isDuplicate;
+        do {
+            cout << "Ma kho: ";
+            cin >> maKhoNhap;
+
+            isDuplicate = kiemTraMaKhoTrung(ds, i , maKhoNhap);
+            if (isDuplicate) cout << "Ma kho da ton tai!\n";
+        } while(isDuplicate);
+        ds[i].setMaKho(maKhoNhap);
+        ds[i].nhap();
+    }
+}
+
+
+// ================= XUAT DANH SACH =================
+
+void xuatDanhSach(KhoHang ds[], int n) {
+    if (n == 0) {
+        cout << "Danh sach rong!\n";
+        return;
+    }
+
+    cout << "\n========== DANH SACH KHO HANG ==========\n";
+
+    for (int i = 0; i < n; i++) {
+        cout << "\n----- KHO THU " << i + 1 << " -----\n";
+        ds[i].xuat();
+    }
+}
+
+
+// ================= SAP XEP =================
+
 void sapXep(KhoHang ds[], int n) {
     for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
@@ -13,3 +71,4 @@ void sapXep(KhoHang ds[], int n) {
 
     cout << "Da sap xep theo suc chua toi da giam dan!\n";
 }
+
