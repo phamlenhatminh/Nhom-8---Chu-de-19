@@ -1,0 +1,15 @@
+void sapXep(KhoHang ds[], int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (ds[i].getSucChua() < ds[j].getSucChua()) {
+                KhoHang temp;
+
+                temp = ds[i];
+                ds[i] = ds[j];
+                ds[j] = temp;
+            }
+        }
+    }
+
+    cout << "Da sap xep theo suc chua toi da giam dan!\n";
+}
